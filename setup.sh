@@ -14,5 +14,5 @@ sudo systemctl daemon-reload
 echo enabling checkra1npythongui.service
 sudo systemctl enable checkra1npythongui.service
 echo This device needs to restart. Press enter now or CTRL + C to stop this setup and restart manually later. Install will finalize on next reboot.
-read restartvarr
-sudo restart
+read restartconfirmation
+sudo reboot
