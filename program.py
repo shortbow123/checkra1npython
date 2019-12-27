@@ -28,8 +28,8 @@ pg.display.set_caption('checkra1npython')
 black = (0, 0, 0)
 white = (255, 255, 255)
 red = (255, 0, 0)
-blue = (0, 255, 0)
-green = (0, 0, 255)
+green = (0, 255, 0)
+blue = (0, 0, 255)
 
 #sets the screen
 screen = pg.display.set_mode((w, h))
@@ -39,7 +39,7 @@ while running:
     #make it active
 
     #set screen color to black
-    screen.fill(blue)
+    screen.fill(blue)'
     
     #stops the loop
     #for event in pg.event.get()
