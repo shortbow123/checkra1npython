@@ -39,7 +39,7 @@ while running:
     #make it active
 
     #set screen color to black
-    screen.fill(black)
+    screen.fill(blue)
     
     #stops the loop
     #for event in pg.event.get()
