@@ -1,0 +1,10 @@
+ [Unit]
+ Description=checkra1npython
+ After=multi-user.target
+
+ [Service]
+ Type=idle
+ ExecStart=/usr/bin/python $HOME/checkra1npython/program.py
+
+ [Install]
+ WantedBy=multi-user.target
