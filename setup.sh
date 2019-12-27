@@ -6,7 +6,7 @@ cd $username/checkra1npython
 echo Downloading latest checkra1npython version
 wget https://raw.githubusercontent.com/shortbow123/checkra1npython/master/program.py
 echo Copying service from github clone setup files to system services location
-sudo cp -rf $username/checkra1npython/checkra1npythongui.service /lib/systemd/system/checkra1npythongui.service
+sudo cp $username/checkra1npython/checkra1npythongui.service /lib/systemd/system/checkra1npythongui.service
 echo running chmod on service
 sudo chmod 644 /lib/systemd/system/checkra1npythongui.service
 echo restarting systemctl daemon
