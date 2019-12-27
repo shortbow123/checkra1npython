@@ -1,0 +1,4 @@
+#!/bin/bash
+
+username = '/un.txt'
+exec /usr/bin/python3 /program.py

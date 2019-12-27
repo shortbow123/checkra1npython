@@ -1,5 +1,14 @@
 import pygame as pg
 
+#availableUpdate = availableUpdateFile.readlines()
+#firstLine = availableUpdate
+#str(firstLine)
+#print(firstLine)
+#3line = 1
+#or line in availableUpdate:
+#    print("") 
+#run program and print version to file then update or not
+
 #make sure the display is inizialized, if not initialize it
 print(pg.display.get_init())
 if pg.display.get_init() != 1: 
@@ -13,7 +22,7 @@ running = True
 (w, h) = (400, 300)
 
 #set window name
-pg.display.set_caption('checkra1n')
+pg.display.set_caption('checkra1npython')
 
 #set the colors
 black = (0, 0, 0)
