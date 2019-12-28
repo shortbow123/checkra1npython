@@ -16,6 +16,10 @@ rm -rf $crp
 echo Creaing new checkra1npython directory...
 mkdir $crp
 
+echo Installing depenedancies...
+pip3 install pygame
+pip3 install wget 
+
 echo Copying program to desired location...
 cp /home/$username/checkra1npython/program.py $crp/program.py
 
@@ -31,13 +35,13 @@ cp /home/$username/checkra1npython/resources/checkra1n.png $crp/resources/checkr
 echo Copying the service into the correct directory...
 sudo cp /home/$username/checkra1npython/checkra1npythongui.service /etc/systemd/system/checkra1npythongui.service
 
-echo running chmod on service
+echo Running chmod on service...
 sudo chmod 644 /etc/systemd/system/checkra1npythongui.service
 
-echo restarting systemctl daemon
+echo Restarting systemctl daemon...
 sudo systemctl daemon-reload
 
-echo enabling checkra1npythongui.service
+echo Enabling checkra1npythongui.service...
 sudo systemctl enable checkra1npythongui.service
 
 
@@ -71,6 +75,6 @@ sudo systemctl enable checkra1npythongui.service
 #echo Setting up correct permissions...
 #sudo chmod u+x /etc/service/checkra1npythongui/run
 
-echo This device needs to restart. Press enter now or CTRL + C to stop this setup and restart manually later. Install will finalize on next reboot.
+echo This device needs to restart. Press enter to restart, or CTRL + C to stop this setup and restart manually later. Device will start checkra1npython at next boot.
 read restartconfirmation
 sudo reboot
