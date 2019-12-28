@@ -46,12 +46,12 @@ if devmode == False:
     wget.download(linkToUpdate, 'availableUpdate.py')
     availableUpdateFile = open("availableUpdate.py", "r")
     updateLines = availableUpdateFile.readlines()
-    availableVersion = updateLines[1]
-    print("Currently, version "+availableVersion+"is available on GitHub.")
+    availableVersion = updateLines[0]
+    print("\n Currently, version "+availableVersion+" is available on GitHub.")
     if availableVersion > version:
         print("An update is available.")
         print("Starting update now...")
-        os.system('python3 update.py')
+        os.system('python3 /update.py')
 
 #Again, try to delete le files
 try:
@@ -113,8 +113,6 @@ while running:
     #    if event.type == event.QUIT:
     #        running = False
     
-    #if need to flip
-        #then flip, set need to flip to false
     #flips display to see changes
     pg.display.update()
     pg.display.flip()
