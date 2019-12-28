@@ -1,5 +1,36 @@
+1
+import os
 import pygame as pg
+import wget
+import keyboard
 
+version = 1
+#Check for dev mode, if no devmode file is present, put it into release mode
+devFileCheck = open("devmode")
+#Puts all the lines from the devmode file into the devLines var
+devLines = devFileCheck.readlines()
+#Puts only the first line into the variable
+devFirstLine = devLines[1]
+#checks for the dev term
+if devLines == "developer":
+    devmode = True
+    print("Developer Mode")
+except FileNotFoundError:
+    print("Release Mode")
+
+#Checks for updates, but only if NOT in developer mode!
+if devmode:
+    linkToUpdate = "https://raw.githubusercontent.com/shortbow123/checkra1npython/master/program.py"
+    wget.download(linkToUpdate, 'availableUpdate.py')
+    availableUpdateFile = open("availableUpdate.py", "r")
+    updateLines = file.readlines()
+    availableVersion = updateLines[1]
+    print("Currently, version "+availableVersion+"is available on GitHub.")
+    if availableVersion > version:
+        print("An update is available.")
+        print("Starting update now...")
+        os.system('update.py')
+os.remove("availableUpdate.py")
 #availableUpdate = availableUpdateFile.readlines()
 #firstLine = availableUpdate
 #str(firstLine)
@@ -39,13 +70,16 @@ while running:
     #make it active
 
     #set screen color to black
-    screen.fill(blue)'
+    screen.fill(blue)
+    
     
     #stops the loop
     #for event in pg.event.get()
     #    if event.type == event.QUIT:
     #        running = False
-          
+    
+    #if need to flip
+        #then flip, set need to flip to false
     #flips display to see changes
     pg.display.update()
     pg.display.flip()
