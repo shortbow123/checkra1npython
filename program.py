@@ -11,10 +11,9 @@ revision = "2"
 devmode = False
 running = True
 devKeyword = ""
-location = "/checkra1npythongui"
 #checks for old update files, if they exist, delete le files
 try:
-    os.remove("availableUpdate.py")
+    os.remove("/checkra1npythongui/availableUpdate.py")
     print("Old update files removed")
 except FileNotFoundError:
     print("No old update files to delete.")
@@ -46,19 +45,19 @@ else:
 #Checks for updates, but only if NOT in developer mode!
 if devmode == False:
     linkToUpdate = "https://raw.githubusercontent.com/shortbow123/checkra1npython/master/program.py"
-    wget.download(linkToUpdate, location+'availableUpdate.py')
-    availableUpdateFile = open(location+"availableUpdate.py", "r")
+    wget.download(linkToUpdate, '/checkra1npythongui/availableUpdate.py')
+    availableUpdateFile = open("/checkra1npythongui/availableUpdate.py", "r")
     updateLines = availableUpdateFile.readlines()
     availableVersion = updateLines[0]
     print("\n Version "+availableVersion+" is available on GitHub, the current version is "+version+".")
     if availableVersion > version:
         print("An update is available.")
         print("Starting update now...")
-        os.system('python3 /update.py')
+        os.system('python3 /checkra1npythongui/update.py')
 
 #Again, try to delete le files
 try:
-    os.remove("availableUpdate.py")
+    os.remove("/checkra1npythongui/availableUpdate.py")
     print("Update files removed")
 except FileNotFoundError:
     print("No update files to delete.")
