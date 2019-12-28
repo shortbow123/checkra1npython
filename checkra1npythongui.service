@@ -1,10 +1,7 @@
- [Unit]
- Description=checkra1npython
- After=multi-user.target
+[Unit]
+Description=checkra1npythongui startup service
 
- [Service]
- Type=idle
- ExecStart=/usr/bin/python3 /home/$HOME/checkra1npython/program.py
-
- [Install]
- WantedBy=multi-user.target
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 /program.py
+User=root

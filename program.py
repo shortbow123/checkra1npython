@@ -47,7 +47,7 @@ if devmode == False:
     availableUpdateFile = open("availableUpdate.py", "r")
     updateLines = availableUpdateFile.readlines()
     availableVersion = updateLines[0]
-    print("\n Currently, version "+availableVersion+" is available on GitHub.")
+    print("\n Version "+availableVersion+" is available on GitHub, the current version is "+version".")
     if availableVersion > version:
         print("An update is available.")
         print("Starting update now...")
@@ -65,12 +65,17 @@ if pg.display.get_init() != 1:
     pg.display.init()
     print("display initialized")
 
-#make sure to add instructions in installation
-#check for existing file with screen dimensions
-    #apply dimentions
-
-#sets initial screen size, made for my 3.5" screen :)
-(w, h) = (720, 480)
+#Checks for custom screen dimensions, if there is no custom dimentions, falls back to default.
+try: 
+    customScreen = open("/resources/settings/CustomDimensions")
+    customScreenLines = customScreen.readlines()
+    customScreenWidth = customScreenLines[0]
+    customScreenHeight = customScreenLines[1]
+    (w, h) = (customScreenWidth, customScreenHeight)
+    
+except FileNotFoundError:
+    print("No custom screen dimensions, falling back to default")
+    (w, h) = (720, 480)
 
 #set window name
 pg.display.set_caption('checkra1npython')

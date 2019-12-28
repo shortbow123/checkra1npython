@@ -1,4 +1,4 @@
 #!/bin/bash
 
 username = '/un.txt'
-exec sudo /usr/bin/python3 /program.py
+exec /usr/bin/python3 /program.py
