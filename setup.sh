@@ -10,8 +10,11 @@ cd /home/$username/checkra1npython
 
 ##### The old service installation method, only used because it can run scripts as root #####
 
-echo Removing old checkra1n files
+echo Removing old checkra1npyhon files...
 rm -rf $crp
+
+echo Creaing new checkra1npython directory...
+mkdir $crp
 
 echo Copying program to desired location...
 cp /home/$username/checkra1npython/program.py $crp/program.py
