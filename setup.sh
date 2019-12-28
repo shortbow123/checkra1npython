@@ -37,6 +37,10 @@ echo Copying resources to desired location
 mkdir /resources
 cp /home/$username/checkra1npython/resources/* /resources/*
 
+echo Making sure everything is up to date...
+sudo apt-get update
+sudo apt-get upgrade
+
 echo Installing the daemontools and dependancies...
 sudo apt-get install daemontools daemontools-run
 

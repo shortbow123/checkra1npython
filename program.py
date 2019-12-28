@@ -1,11 +1,11 @@
-1
+2
 import os
 import pygame as pg
 import wget
 #To be used soon
 #import keyboard
 
-version = "1"
+version = "2"
 devmode = False
 running = True
 devKeyword = ""
@@ -82,15 +82,30 @@ red = (255, 0, 0)
 green = (0, 255, 0)
 blue = (0, 0, 255)
 
+test1 = 0
+test2 = 2
+test3 = 4
+
+
 #sets the screen
 screen = pg.display.set_mode((w, h))
 
 while running:
     #get_display active == false:
         #make it active
-
+    
+    test1 + 1
+    test2 + 2
+    test3 + 4
+    
+    if test1 >= 255 or test1 == 255:
+        test1 = 0
+    if test2 >= 255 or test2 == 255:
+        test2 = 2
+    if test3 >= 255 or test3 == 255:
+        test3 = 4
     #set screen color to black
-    screen.fill(blue)
+    screen.fill((test1, test2, test3))
     
     
     #stops the loop
