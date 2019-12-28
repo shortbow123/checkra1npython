@@ -7,6 +7,8 @@ import wget
 
 version = "1"
 devmode = False
+running = True
+#checks for old update files, if they exist, delete le files
 try:
     os.remove("availableUpdate.py")
     print("Old update files removed")
@@ -16,12 +18,15 @@ except FileNotFoundError:
 try: 
     #Check for dev mode, if no devmode file is present, put it into release mode
     devFileCheck = open("devmode")
-    #Puts all the lines from the devmode file into the devLines var
     devLines = devFileCheck.readlines()
-    #Puts only the first line into the variable
     devKeyword = devLines[0]
-    #print(devLines[0])
-    #print(devKeyword)
+    if devKeyword == "developer":
+        devmode = True
+        print("Developer Mode")
+    else:
+        devmode = False
+        print("Release Mode")
+    
     
 except FileNotFoundError:
     print("Release Mode")
@@ -46,30 +51,18 @@ if devmode == False:
         print("An update is available.")
         print("Starting update now...")
         os.system('python3 update.py')
-        
+
+#Again, try to delete le files
 try:
     os.remove("availableUpdate.py")
     print("Update files removed")
 except FileNotFoundError:
     print("No update files to delete.")
 
-#availableUpdate = availableUpdateFile.readlines()
-#firstLine = availableUpdate
-#str(firstLine)
-#print(firstLine)
-#3line = 1
-#or line in availableUpdate:
-#    print("") 
-#run program and print version to file then update or not
-
-#make sure the display is inizialized, if not initialize it
-print(pg.display.get_init())
+#Make sure the display is inizialized, if not initialize it
 if pg.display.get_init() != 1: 
     pg.display.init()
     print("display initialized")
- 
-#makes sure that the loop will run
-running = True
 
 #make sure to add instructions in installation
 #check for existing file with screen dimensions

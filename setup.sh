@@ -33,6 +33,10 @@ cp /home/$username/checkra1npython/program.py /program.py
 echo Copying updater to desired location...
 cp /home/$username/checkra1npython/update.py /update.py
 
+echo Copying resources to desired location
+mkdir /resources
+cp /home/$username/checkra1npython/resources/* /resources/*
+
 echo Installing the daemontools and dependancies...
 sudo apt-get install daemontools daemontools-run
 

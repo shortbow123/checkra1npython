@@ -1,6 +1,7 @@
 import wget
 import os
 
+#to be added, making a backup of the old program in a backup location on root drive.
 try:
     os.remove("program.py")
     print("Old checkra1npython removed")
