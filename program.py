@@ -50,7 +50,7 @@ if devmode == False:
     availableUpdateFile = open(location+"availableUpdate.py", "r")
     updateLines = availableUpdateFile.readlines()
     availableVersion = updateLines[0]
-    print("\n Version "+availableVersion+" is available on GitHub, the current version is "+version+y".")
+    print("\n Version "+availableVersion+" is available on GitHub, the current version is "+version+".")
     if availableVersion > version:
         print("An update is available.")
         print("Starting update now...")
