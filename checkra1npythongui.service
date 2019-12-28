@@ -3,7 +3,7 @@ Description=checkra1npythongui startup service
 
 [Service]
 Type=idle
-ExecStart=/usr/bin/python3 /program.py
+ExecStart=/usr/bin/python3 /checkra1npythongui/program.py
 User=root
 
 [Install]
