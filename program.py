@@ -8,6 +8,7 @@ import wget
 version = "1"
 devmode = False
 running = True
+devKeyword = ""
 #checks for old update files, if they exist, delete le files
 try:
     os.remove("availableUpdate.py")
