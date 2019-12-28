@@ -5,3 +5,6 @@ Description=checkra1npythongui startup service
 Type=idle
 ExecStart=/usr/bin/python3 /program.py
 User=root
+
+[Install]
+WantedBy=multi-user.target

@@ -5,21 +5,25 @@ read username
 
 echo Saving the username...
 echo $username > /un.txt
+crp=/checkra1npythongui
 cd /home/$username/checkra1npython
 
 ##### The old service installation method, only used because it can run scripts as root #####
 
+echo Removing old checkra1n files
+rm -rf $crp
+
 echo Copying program to desired location...
-cp /home/$username/checkra1npython/program.py /program.py
+cp /home/$username/checkra1npython/program.py $crp/program.py
 
 echo Copying update script to desired location...
-cp /home$username/checkra1npython/update.py /update.py
+cp /home/$username/checkra1npython/update.py $crp/update.py
 
 echo Making resources directory...
 mkdir /resources
 
 echo Copying resources to resource location...
-cp /home/$username/checkra1npython/resources/* /recources/*
+cp /home/$username/checkra1npython/resources/checkra1n.png $crp/recources/checkra1n.png
 
 echo Copying the service into the correct directory...
 sudo cp /home/$username/checkra1npython/checkra1npythongui.service /etc/systemd/system/checkra1npythongui.service

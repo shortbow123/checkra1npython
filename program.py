@@ -1,4 +1,5 @@
 2
+2
 import os
 import pygame as pg
 import wget
@@ -6,9 +7,11 @@ import wget
 #import keyboard
 
 version = "2"
+revision = "2"
 devmode = False
 running = True
 devKeyword = ""
+location = "/checkra1npythongui"
 #checks for old update files, if they exist, delete le files
 try:
     os.remove("availableUpdate.py")
@@ -43,11 +46,11 @@ else:
 #Checks for updates, but only if NOT in developer mode!
 if devmode == False:
     linkToUpdate = "https://raw.githubusercontent.com/shortbow123/checkra1npython/master/program.py"
-    wget.download(linkToUpdate, 'availableUpdate.py')
-    availableUpdateFile = open("availableUpdate.py", "r")
+    wget.download(linkToUpdate, location+'availableUpdate.py')
+    availableUpdateFile = open(location+"availableUpdate.py", "r")
     updateLines = availableUpdateFile.readlines()
     availableVersion = updateLines[0]
-    print("\n Version "+availableVersion+" is available on GitHub, the current version is "+version".")
+    print("\n Version "+availableVersion+" is available on GitHub, the current version is "+version+y".")
     if availableVersion > version:
         print("An update is available.")
         print("Starting update now...")
