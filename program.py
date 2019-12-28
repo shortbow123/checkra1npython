@@ -2,35 +2,57 @@
 import os
 import pygame as pg
 import wget
-import keyboard
+#To be used soon
+#import keyboard
 
-version = 1
-#Check for dev mode, if no devmode file is present, put it into release mode
-devFileCheck = open("devmode")
-#Puts all the lines from the devmode file into the devLines var
-devLines = devFileCheck.readlines()
-#Puts only the first line into the variable
-devFirstLine = devLines[1]
+version = "1"
+devmode = False
+try:
+    os.remove("availableUpdate.py")
+    print("Old update files removed")
+except FileNotFoundError:
+    print("No old update files to delete.")
+
+try: 
+    #Check for dev mode, if no devmode file is present, put it into release mode
+    devFileCheck = open("devmode")
+    #Puts all the lines from the devmode file into the devLines var
+    devLines = devFileCheck.readlines()
+    #Puts only the first line into the variable
+    devKeyword = devLines[0]
+    #print(devLines[0])
+    #print(devKeyword)
+    
+except FileNotFoundError:
+    print("Release Mode")
+    
 #checks for the dev term
-if devLines == "developer":
+if devKeyword == "developer":
     devmode = True
     print("Developer Mode")
-except FileNotFoundError:
+else:
+    devmode = False
     print("Release Mode")
 
 #Checks for updates, but only if NOT in developer mode!
-if devmode:
+if devmode == False:
     linkToUpdate = "https://raw.githubusercontent.com/shortbow123/checkra1npython/master/program.py"
     wget.download(linkToUpdate, 'availableUpdate.py')
     availableUpdateFile = open("availableUpdate.py", "r")
-    updateLines = file.readlines()
+    updateLines = availableUpdateFile.readlines()
     availableVersion = updateLines[1]
     print("Currently, version "+availableVersion+"is available on GitHub.")
     if availableVersion > version:
         print("An update is available.")
         print("Starting update now...")
-        os.system('update.py')
-os.remove("availableUpdate.py")
+        os.system('python3 update.py')
+        
+try:
+    os.remove("availableUpdate.py")
+    print("Update files removed")
+except FileNotFoundError:
+    print("No update files to delete.")
+
 #availableUpdate = availableUpdateFile.readlines()
 #firstLine = availableUpdate
 #str(firstLine)
@@ -49,8 +71,12 @@ if pg.display.get_init() != 1:
 #makes sure that the loop will run
 running = True
 
-#sets initial screen size
-(w, h) = (400, 300)
+#make sure to add instructions in installation
+#check for existing file with screen dimensions
+    #apply dimentions
+
+#sets initial screen size, made for my 3.5" screen :)
+(w, h) = (720, 480)
 
 #set window name
 pg.display.set_caption('checkra1npython')
@@ -67,7 +93,7 @@ screen = pg.display.set_mode((w, h))
 
 while running:
     #get_display active == false:
-    #make it active
+        #make it active
 
     #set screen color to black
     screen.fill(blue)
