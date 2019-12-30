@@ -1,5 +1,3 @@
-2
-2
 import os
 import pygame as pg
 import wget
@@ -7,11 +5,11 @@ import wget
 #import keyboard
 
 version = "2"
-revision = "2"
+#revision = "2" TO BE ADDED SOON IN BETA UPDATE
 devmode = False
 running = True
 devKeyword = ""
-#checks for old update files, if they exist, delete le files
+#checks for old update files, if they exist, delete le file
 try:
     os.remove("/checkra1npythongui/availableUpdate.py")
     print("Old update files removed")
@@ -44,17 +42,20 @@ else:
 
 #Checks for updates, but only if NOT in developer mode!
 if devmode == False:
-    linkToUpdate = "https://raw.githubusercontent.com/shortbow123/checkra1npython/master/program.py"
-    wget.download(linkToUpdate, '/checkra1npythongui/availableUpdate.py')
-    availableUpdateFile = open("/checkra1npythongui/availableUpdate.py", "r")
-    updateLines = availableUpdateFile.readlines()
-    availableVersion = updateLines[0]
+    versionFile = open("/checkra1npythongui/version", "w")
+    versionFile.write(version)
+    versionFile.close()
+    linkToVersion = "https://raw.githubusercontent.com/shortbow123/checkra1npython/master/version"
+    wget.download(linkToVersion, '/checkra1npythongui/availableVersion')
+    availableVersion = open("/checkra1npythongui/availableVersion", "r")
+    versionLines = availableVersion.readlines()
+    availableVersion = versionLines[0]
     print("\n Version "+availableVersion+" is available on GitHub, the current version is "+version+".")
     if availableVersion > version:
         print("An update is available.")
         print("Starting update now...")
         os.system('python3 /checkra1npythongui/update.py')
-
+        
 #Again, try to delete le files
 try:
     os.remove("/checkra1npythongui/availableUpdate.py")

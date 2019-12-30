@@ -1,4 +1,4 @@
 #!/bin/bash
 
 username = '/un.txt'
-exec /usr/bin/python3 /program.py
+exec /usr/bin/python3 /checkra1npythongui/program.py
