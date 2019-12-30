@@ -54,7 +54,8 @@ echo Service will be installed under the name "checkra1npythongui"...
 echo Removing old checkra1npython files...
 rm -rf $crp
 
-echo Making new checkra1npythongui python
+echo Making new checkra1npythongui python directory...
+mkdir $crp
 
 echo Copying program to desired location...
 cp /home/$username/checkra1npython/program.py $crp/program.py
@@ -67,7 +68,7 @@ echo Copying resources to desired location
 mkdir $crp/resources
 cp /home/$username/checkra1npython/resources/checkra1n.png $crp/resources/checkra1n.png
 
-echo Making sure everything is up to date (this may take a while)...
+echo "Making sure everything is up to date (this may take a while)..."
 sudo apt-get update -y
 sudo apt-get upgrade -y
 
