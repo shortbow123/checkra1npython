@@ -54,11 +54,14 @@ echo Service will be installed under the name "checkra1npythongui"...
 echo Removing old checkra1npython files...
 rm -rf $crp
 
+echo Making new checkra1npythongui python
+
 echo Copying program to desired location...
 cp /home/$username/checkra1npython/program.py $crp/program.py
 
 echo Copying updater to desired location...
 cp /home/$username/checkra1npython/update.py $crp/update.py
+cp /home/$username/checkra1npython/version $crp/version
 
 echo Copying resources to desired location
 mkdir $crp/resources

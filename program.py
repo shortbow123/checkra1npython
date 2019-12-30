@@ -11,7 +11,7 @@ running = True
 devKeyword = ""
 #checks for old update files, if they exist, delete le file
 try:
-    os.remove("/checkra1npythongui/availableUpdate.py")
+    os.remove("/checkra1npythongui/availableVersion.py")
     print("Old update files removed")
 except FileNotFoundError:
     print("No old update files to delete.")
@@ -58,7 +58,7 @@ if devmode == False:
         
 #Again, try to delete le files
 try:
-    os.remove("/checkra1npythongui/availableUpdate.py")
+    os.remove("/checkra1npythongui/availableVersion.py")
     print("Update files removed")
 except FileNotFoundError:
     print("No update files to delete.")
