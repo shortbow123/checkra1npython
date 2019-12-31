@@ -4,8 +4,8 @@ echo Please enter your username:
 read username
 
 echo Saving the username...
-echo $username > /un.txt
-crp=/checkra1npythongui
+export username
+crp=/home/$username/Applications/checkra1npython
 cd /home/$username/checkra1npython
 
 ##### The old service installation method, back into retirement #####
@@ -54,39 +54,7 @@ echo Service will be installed under the name "checkra1npythongui"...
 echo Removing old checkra1npython files...
 rm -rf $crp
 
-echo Making new checkra1npythongui python directory...
-mkdir $crp
-
 echo Copying program to desired location...
-cp /home/$username/checkra1npython/program.py $crp/program.py
+cp -rf /home/$username/checkra1npython/checkra1npythongui/ $crp
 
-echo Copying updater to desired location...
-cp /home/$username/checkra1npython/update.py $crp/update.py
-cp /home/$username/checkra1npython/version $crp/version
-
-echo Copying resources to desired location
-mkdir $crp/resources
-cp /home/$username/checkra1npython/resources/checkra1n.png $crp/resources/checkra1n.png
-
-echo "Making sure everything is up to date (this may take a while)..."
-sudo apt-get update -y
-sudo apt-get upgrade -y
-
-echo Installing the daemontools and dependancies...
-sudo apt-get install daemontools daemontools-run -y
-pip3 install wget
-pip3 install pygame
-
-echo Creating service directory...
-sudo mkdir /etc/service/checkra1npythongui
-
-echo Copying run file...
-sudo cp /home/$username/checkra1npython/run /etc/service/checkra1npythongui/run
-
-echo Setting up correct permissions...
-sudo chmod u+x /etc/service/checkra1npythongui/run
-sudo chown $username $crp
-
-echo This device needs to restart. Press enter to restart, or CTRL + C to stop this setup and restart manually later. Device will start checkra1npython at next boot.
-read restartconfirmation
-sudo reboot
+echo Done with the program, the daemon STILL NEED TO BE SETUP, please run 'sudo ./daemon_setup.sh'
