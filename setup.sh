@@ -1,10 +1,7 @@
 #!/bin/bash
 
-echo Please enter your username:
-read username
+username=$(whoami)
 
-echo Saving the username...
-export username
 crp=/home/$username/Applications/checkra1npython
 cd /home/$username/checkra1npython
 
