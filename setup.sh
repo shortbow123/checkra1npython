@@ -52,11 +52,11 @@ echo Removing old checkra1npython files...
 rm -rf $crp
 
 echo Copying program to desired location...
-p -rf /home/$username/checkra1npython/checkra1npythongui/ $crp
+cp -rf /home/$username/checkra1npython/checkra1npythongui/ $crp
 
 echo Creating daemon run file...
-echo "#!/bin/bash" > ru
-echo "exec /usr/bin/python3 /home/$USER/Appleications/program.py" > run
+echo "#!/bin/bash" > run
+echo "exec /usr/bin/python3 /home/$USER/Applications/program.py" > run
 
 echo "Setting up daemon_setup.sh..."
 echo -e "CURUSER=$USER\n$(cat daemon_setup.sh)" > daemon_setup.sh
