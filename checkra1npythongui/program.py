@@ -11,7 +11,7 @@ running = True
 devKeyword = ""
 #checks for old update files, if they exist, delete le file
 try:
-    os.remove("/checkra1npythongui/availableVersion.py")
+    os.remove("availableVersion.py")
     print("Old update files removed")
 except FileNotFoundError:
     print("No old update files to delete.")
@@ -42,24 +42,24 @@ else:
 
 #Checks for updates, but only if NOT in developer mode!
 if devmode == False:
-    versionFile = open("/checkra1npythongui/version", "w")
+    versionFile = open("version", "w")
     versionFile.write(version)
     versionFile.close()
     linkToVersion = "https://raw.githubusercontent.com/shortbow123/checkra1npython/master/checkra1npythongui/version"
-    wget.download(linkToVersion, '/checkra1npythongui/availableVersion')
+    wget.download(linkToVersion, 'availableVersion')
     os.system('sudo ./fixpermissions.sh')
-    availableVersion = open("/checkra1npythongui/availableVersion", "r")
+    availableVersion = open("availableVersion", "r")
     versionLines = availableVersion.readlines()
     availableVersion = versionLines[0]
     print("\n Version "+availableVersion+" is available on GitHub, the current version is "+version+".")
     if availableVersion > version:
         print("An update is available.")
         print("Starting update now...")
-        os.system('python3 /checkra1npythongui/update.py')
+        os.system('python3 update.py')
         
 #Again, try to delete le files
 try:
-    os.remove("/checkra1npythongui/availableVersion.py")
+    os.remove("availableVersion.py")
     print("Update files removed")
 except FileNotFoundError:
     print("No update files to delete.")
@@ -71,7 +71,7 @@ if pg.display.get_init() != 1:
 
 #Checks for custom screen dimensions, if there is no custom dimentions, falls back to default.
 try: 
-    customScreen = open("/resources/settings/CustomDimensions")
+    customScreen = open("resources/settings/CustomDimensions")
     customScreenLines = customScreen.readlines()
     customScreenWidth = customScreenLines[0]
     customScreenHeight = customScreenLines[1]
