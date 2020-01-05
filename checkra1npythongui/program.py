@@ -39,6 +39,9 @@ if devKeyword == "developer":
 else:
     devmode = False
     print("Release Mode")
+    
+#Enabled until it is working correctly on my rpi :(
+devmode = True
 
 #Checks for updates, but only if NOT in developer mode!
 if devmode == False:

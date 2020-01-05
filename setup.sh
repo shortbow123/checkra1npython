@@ -55,7 +55,7 @@ echo Copying program to desired location...
 cp -rf /home/$username/checkra1npython/checkra1npythongui/ $crp
 
 echo Creating daemon run file...
-echo "#!/bin/bash" > run
+echo "#!/bin/bash" > run
 echo "exec /usr/bin/python3 /home/$USER/Applications/program.py" > run
 
 echo "Setting up daemon_setup.sh..."
