@@ -45,9 +45,7 @@ if devmode == False:
     versionFile = open("version", "w")
     versionFile.write(version)
     versionFile.close()
-    linkToVersion = "https://raw.githubusercontent.com/shortbow123/checkra1npython/master/checkra1npythongui/version"
-    wget.download(linkToVersion, 'availableVersion')
-    os.system('sudo ./fixpermissions.sh')
+    wget.download('https://raw.githubusercontent.com/shortbow123/checkra1npython/master/checkra1npythongui/version', 'availableVersion')
     availableVersion = open("availableVersion", "r")
     versionLines = availableVersion.readlines()
     availableVersion = versionLines[0]
