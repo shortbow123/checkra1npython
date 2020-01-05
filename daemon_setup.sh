@@ -13,7 +13,7 @@ echo Creaing service directory...
 mkdir /etc/service/checkra1npythongui
 
 echo Copying daemon run file...
-cp /home/$USER/checkra1npython/run /etc/service/checkra1npythongui/run
+cp /home/$CURUSER/checkra1npython/run /etc/service/checkra1npythongui/run
 
 echo Fixing permissions...
 sudo chmod u+x /etc/service/checkra1npythongui/run
@@ -21,5 +21,3 @@ sudo chmod u+x /etc/service/checkra1npythongui/run
 echo This device needs to restart. Press enter to restart, or CTRL + C to stop this setup and restart manually later. Device will start checkra1npython at next boot.
 read restartconfirmation
 sudo reboot
-
-

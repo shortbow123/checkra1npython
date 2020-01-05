@@ -55,7 +55,10 @@ echo Copying program to desired location...
 p -rf /home/$username/checkra1npython/checkra1npythongui/ $crp
 
 echo Creating daemon run file...
-echo "#!/bin/bash" > run
+echo "#!/bin/bash" > ru
 echo "exec /usr/bin/python3 /home/$USER/Appleications/program.py" > run
+
+echo "Setting up daemon_setup.sh..."
+echo -e "CURUSER=$USER\n$(cat daemon_setup.sh)" > daemon_setup.sh
 
 echo Done with the program, the daemon STILL NEED TO BE SETUP, please run 'sudo ./daemon_setup.sh'
