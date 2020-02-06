@@ -72,7 +72,7 @@ except FileNotFoundError:
 
 #Make sure the display is inizialized, if not initialize it
 if pg.display.get_init() != 1:
-    pg.display.init()
+    pg.display.init(
     print("display initialized")
 
 #Checks for custom screen dimensions, if there is no custom dimentions, falls back to default.
@@ -211,12 +211,41 @@ def rcmLoaderScreen():
             time.sleep(0.1)
 
 
+def toolsScreen():
+    global curScreen
+
+    print("switching to tools pane")
+    curScreen = 5
+    screen.fill(black)
+
+    wifiHotspotButton = pg.Rect(200, 200, 200, 200)
+    webServerButton = pg.Rect(200, 200, 200, 200)
+
+    while curScreen == 5:
+        for event in pg.event.get():
+            if event.type == pg.QUIT:
+                running = False
+                pg.quit()
+        mouseButton = pg.mouse.get_pressed()
+        if mouseButton > (0, 0, 0):
+            #wait until the mousebutton is up to switch screens maybe...
+            time.sleep(0.1)
+            homeScreen()
+
+
 def settingsScreen():
     global curScreen
 
     print("switching to settings pane")
     curScreen = 6
     screen.fill(grey)
+
+    displayButton = pg.Rect(200, 200, 200, 200)
+    powerManagementButton = pg.Rect(200, 200, 200, 200)
+    storageManagementButton = pg.Rect(200, 200, 200, 200)
+    experimentalSettingsButton = pg.Rect(200, 200, 200, 200)
+
+
 
     print(curScreen)
     pg.display.flip()
