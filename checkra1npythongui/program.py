@@ -114,6 +114,9 @@ grey = (155, 155, 155)
 #sets the screen
 screen = pg.display.set_mode((w, h))
 
+
+pg.display.toggle_fullscreen(True)
+
 def homeScreen():
     global curScreen
     global checkra1nButton
