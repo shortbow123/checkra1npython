@@ -9,11 +9,6 @@ import screens
 
 #add android-like easter egg game
 
-
-#finish taking those xanex pills
-#get rid of the bodies
-
-
 #add config.txt for font saving and all settings
 version = "2"
 #revision = "2" TO BE ADDED SOON IN BETA UPDATE
